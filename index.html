@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constraint Validation API Example</title>
+    <style>
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="exampleForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required minlength="3" maxlength="15">
+        <span id="usernameError" class="error-message"></span>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="emailError" class="error-message"></span>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('exampleForm').addEventListener('submit', function(event) {
+            var usernameInput = document.getElementById('username');
+            var emailInput = document.getElementById('email');
+            var isFormValid = true;
+
+            // Reset custom validation messages
+            usernameInput.setCustomValidity('');
+            emailInput.setCustomValidity('');
+
+            // Check if the username input is valid
+            if (!usernameInput.checkValidity()) {
+                document.getElementById('usernameError').textContent = usernameInput.validationMessage;
+                isFormValid = false;
+            } else {
+                document.getElementById('usernameError').textContent = '';
+            }
+
+            // Check if the email input is valid
+            if (!emailInput.checkValidity()) {
+                document.getElementById('emailError').textContent = emailInput.validationMessage;
+                isFormValid = false;
+            } else {
+                document.getElementById('emailError').textContent = '';
+            }
+
+            // Prevent form submission if any input is invalid
+            if (!isFormValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
