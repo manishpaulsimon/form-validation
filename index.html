@@ -12,14 +12,33 @@
 </head>
 <body>
     <form id="exampleForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required minlength="3" maxlength="15">
-        <span id="usernameError" class="error-message"></span>
-        <br>
+      
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
         <span id="emailError" class="error-message"></span>
         <br>
+        <br>
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required>
+        <span id="countryError" class="error-message"></span>
+        <br>
+        <br>
+        <label for="zipcode">Zipcode:</label>
+        <input type="text" id="zipcode" name="zipcode" required>
+        <span id="zipError" class="error-message"></span>
+        <br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <span id="passError" class="error-message"></span>
+        <br>
+        <br>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="password" required>
+        <span id="passConfirmError" class="error-message"></span>
+        <br>
+        <br>
+
         <button type="submit">Submit</button>
     </form>
     <script src="script.js"></script>
